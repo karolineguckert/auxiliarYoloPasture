@@ -1,0 +1,12 @@
+Agua
+Arbusto grande
+Arbusto pequeno
+Arvore
+Bananeira
+Cupim
+Folhas estreitas
+Folhas largas
+Navalhao
+Palmeira
+Pasto
+Solo exposto
