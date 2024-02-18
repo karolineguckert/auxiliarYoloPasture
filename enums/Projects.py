@@ -18,3 +18,19 @@ class Project(ProjectsFields, Enum):
     IMAGENS_V = 5, 87, 96, "IMAGENS_V"
     CAMPO_4_SUBIDA = 4, 20, 86, "CAMPO_4_SUBIDA"
     CAMPO_4_CIMA = 3, 1, 19, "CAMPO_4_CIMA"
+
+    @classmethod
+    def get_project(self, name):
+        project = []
+
+        project_number = Project[name].value[0]
+        initial_image_id = Project[name].value[1]
+        final_image_id = Project[name].value[2]
+        name_main_folder = Project[name].value[3]
+
+        project.append(project_number)
+        project.append(initial_image_id)
+        project.append(final_image_id)
+        project.append(name_main_folder)
+
+        return project

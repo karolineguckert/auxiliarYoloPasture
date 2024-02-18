@@ -20,17 +20,18 @@ class DownloaderOfImages:
     # initial_image_id is the id of the first image of the folder
     # final_image_id is the id of the last image of the folder
     def get_all_images(self, project_number, export_type, initial_image_id, final_image_id, name_main_folder):
+        print("\nBeginning downloads...\n")
         aux_id = initial_image_id
 
         for i in range(initial_image_id, final_image_id + 1):
             time.sleep(7)
-            print("Executando a imagem...", i)
+            print("Executing the image...", i)
             self.get_image(project_number, export_type, aux_id, name_main_folder)
             aux_id += 1
 
     def get_image(self, project_number, export_type, image_id, name_main_folder):
         params = 'exportType={}&ids[]={}'.format(export_type, image_id)
-        complete_url = '{}/{}/export?{}'.format(self.URL, project_number, params)
+        complete_url = '{}/{}/export?{}&download_all_tasks=true'.format(self.URL, project_number, params)
         complete_name_of_folder = './images/{}'.format(name_main_folder)
 
         self.download_zip(complete_url, complete_name_of_folder)
