@@ -20,7 +20,7 @@ class DownloaderOfImages:
     # initial_image_id is the id of the first image of the folder
     # final_image_id is the id of the last image of the folder
     def get_all_images(self, project_number, export_type, initial_image_id, final_image_id, name_main_folder):
-        print("\nBeginning downloads...\n")
+        print("\nBeginning downloads {}...\n".format(name_main_folder))
         aux_id = initial_image_id
 
         for i in range(initial_image_id, final_image_id + 1):
