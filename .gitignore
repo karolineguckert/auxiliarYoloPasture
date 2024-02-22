@@ -1,2 +1,4 @@
 .venv
 images
+image_to_detect
+images_to_train
