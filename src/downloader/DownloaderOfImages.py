@@ -25,7 +25,7 @@ class DownloaderOfImages:
         for i in range(initial_image_id, final_image_id + 1):
             time.sleep(7)
             print("Executing the image...", i)
-            self._get_image(project_number, export_type, aux_id, name_main_folder)
+            self.__get_image(project_number, export_type, aux_id, name_main_folder)
             aux_id += 1
 
     # Assistant method to get one image from the LabelStudio
@@ -35,19 +35,19 @@ class DownloaderOfImages:
     # export_type is the type of file that the classification will be exported
     # image_id is the id of the image of the folder
     # name_main_folder is the name of principal folder
-    def _get_image(self, project_number, export_type, image_id, name_main_folder):
+    def __get_image(self, project_number, export_type, image_id, name_main_folder):
         params = 'exportType={}&ids[]={}'.format(export_type, image_id)
         complete_url = '{}/{}/export?{}&download_all_tasks=true'.format(self.URL, project_number, params)
         complete_name_of_folder = './images/{}'.format(name_main_folder)
 
-        self._download_zip(complete_url, complete_name_of_folder)
+        self.__download_zip(complete_url, complete_name_of_folder)
 
     # Assistant method to download the zip file from the LabelStudio
     #
     #
     # url is the complete route to request images
     # folder_name is the name of the folder where the zip will be downloaded
-    def _download_zip(self, url, folder_name):
+    def __download_zip(self, url, folder_name):
         # Create a folder to store the files
         os.makedirs(folder_name, exist_ok=True)
 
