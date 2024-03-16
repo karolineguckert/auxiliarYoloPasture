@@ -2,8 +2,8 @@ import os
 
 
 class LabelChanger:
-    def __init__(self):
-        self.ROOT_PATH = './images_to_train'
+    def __init__(self, root_path):
+        self.ROOT_PATH = root_path
         self.OLD_VALUES = [1, 2, 3, 6, 7, 8, 9, 10]  # BIG_BUSH, SMALL_BUSH, TREE, NARROW_LEAVES, WIDE_LEAVES, WEED,
         # PALM_TREE, PASTURE
 
