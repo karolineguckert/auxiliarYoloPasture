@@ -7,10 +7,20 @@ class LabelChanger:
         self.OLD_VALUES = [1, 2, 3, 6, 7, 8, 9, 10]  # BIG_BUSH, SMALL_BUSH, TREE, NARROW_LEAVES, WIDE_LEAVES, WEED,
         # PALM_TREE, PASTURE
 
+    # Assistant method to change de type of the bounding box from images in the multiples folders
+    #
+    def change_bounding_boxes(self):
+        folder_list = os.listdir(self.ROOT_PATH)
+
+        for file_name in folder_list:
+            file_path = "/{}".format(file_name)
+            self.change_bounding_box(file_path)
+
     # Assistant method to change de type of the bounding box from images in the same folder
     #
-    def change_bounding_box(self):
-        labels_folder_path = '{}/labels'.format(self.ROOT_PATH)
+    # folder_path is the value of a sub-folder and can be nullable
+    def change_bounding_box(self, folder_path=""):
+        labels_folder_path = '{}/labels'.format(self.ROOT_PATH + folder_path)
         labels_list = os.listdir(labels_folder_path)
 
         for label in labels_list:

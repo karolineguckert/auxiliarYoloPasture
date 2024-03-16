@@ -11,4 +11,5 @@ if __name__ == '__main__':
     # LabelRemover().remove_empty_file_label()
     # FolderOrganizer().move_images_to_train()
     # FolderOrganizer().move_images_to_detect()
-    LabelChanger().change_bounding_box()
+    # LabelChanger("./images_to_train").change_bounding_box()
+    LabelChanger("./images").change_bounding_boxes()
