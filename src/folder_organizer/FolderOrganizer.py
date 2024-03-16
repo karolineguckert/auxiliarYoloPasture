@@ -6,6 +6,8 @@ class FolderOrganizer:
     def __init__(self):
         self.ROOT_PATH = './images'
 
+    # Assistant method to move images with label to a new folder
+    #
     def move_images_to_train(self):
         file_list = os.listdir(self.ROOT_PATH)
 
@@ -24,6 +26,8 @@ class FolderOrganizer:
                 shutil.move(label_path, 'images_to_train/labels/{}'.format(label))
                 shutil.move(image_path, 'images_to_train/images/{}'.format(image_name))
 
+    # Assistant method to move images without label to a new folder
+    #
     def move_images_to_detect(self):
         file_list = os.listdir(self.ROOT_PATH)
 

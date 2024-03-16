@@ -9,6 +9,8 @@ class LabelRemover:
         self.TERMITE = 5
         self.EXPOSED_SOIL = 11
 
+    # Assistant method to remove files with no classifications
+    #
     def remove_empty_file_label(self):
         file_list = os.listdir(self.ROOT_PATH)
 
@@ -37,8 +39,10 @@ class LabelRemover:
                 content = self.__get_label_lines(label_path)
 
                 self.__write_to_file(label_path, content)
-                print(label_path)
 
+    # Assistant method to get all lines from file with classifications
+    #
+    # label_path is the path of the label
     def __get_label_lines(self, label_path):
         file = open(label_path, "r")
         content = file.readlines()
@@ -47,6 +51,9 @@ class LabelRemover:
 
         return content
 
+    # Assistant method to get the values written in the file
+    #
+    # label_path is the path of the label
     def __get_label_content(self, label_path):
         file = open(label_path, "r")
         content = file.read()
@@ -54,6 +61,10 @@ class LabelRemover:
 
         return content
 
+    # Assistant method to write values in the file with classifications
+    #
+    # label_path is the path of the label
+    # content is the values written in the file classifications
     def __write_to_file(self, label_path, content):
         file = open(label_path, "w+")
 

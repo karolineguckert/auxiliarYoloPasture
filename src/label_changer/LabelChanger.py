@@ -7,7 +7,8 @@ class LabelChanger:
         self.OLD_VALUES = [1, 2, 3, 6, 7, 8, 9, 10]  # BIG_BUSH, SMALL_BUSH, TREE, NARROW_LEAVES, WIDE_LEAVES, WEED,
         # PALM_TREE, PASTURE
 
-
+    # Assistant method to change de type of the bounding box from images in the same folder
+    #
     def change_bounding_box(self):
         labels_folder_path = '{}/labels'.format(self.ROOT_PATH)
         labels_list = os.listdir(labels_folder_path)
@@ -18,6 +19,9 @@ class LabelChanger:
 
             self.__write_to_file(label_path, content)
 
+    # Assistant method to get all lines from file with classifications
+    #
+    # label_path is the path of the label
     def __get_label_lines(self, label_path):
         file = open(label_path, "r")
         content = file.readlines()
@@ -26,6 +30,10 @@ class LabelChanger:
 
         return content
 
+    # Assistant method to write values in the file with classifications
+    #
+    # label_path is the path of the label
+    # content is the values written in the file classifications
     def __write_to_file(self, label_path, content):
         file = open(label_path, "w+")
 
