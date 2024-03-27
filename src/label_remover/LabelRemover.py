@@ -8,6 +8,8 @@ class LabelRemover:
         self.BANANA_TREE = 4
         self.TERMITE = 5
         self.EXPOSED_SOIL = 11
+        self.PASTURE = 7
+        self.PALM_TREE = 6
 
     # Assistant method to remove files with no classifications
     #
@@ -72,5 +74,7 @@ class LabelRemover:
             lines_divided = line.split(" ")
             label_type = int(lines_divided[0])
 
-            if label_type != self.WATER and label_type != self.BANANA_TREE and label_type != self.TERMITE and label_type != self.EXPOSED_SOIL:
+            if (label_type != self.WATER and label_type != self.BANANA_TREE
+                    and label_type != self.TERMITE and label_type != self.EXPOSED_SOIL
+                    and label_type != self.PASTURE and label_type != self.PALM_TREE):
                 file.write(line)
