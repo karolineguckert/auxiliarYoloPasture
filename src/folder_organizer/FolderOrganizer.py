@@ -37,4 +37,4 @@ class FolderOrganizer:
 
             for image in images_list:
                 image_path = '{}/{}'.format(images_folder_path, image)
-                shutil.move(image_path, 'image_to_detect/{}'.format(image))
+                shutil.move(image_path, 'images_to_detect/{}'.format(image))

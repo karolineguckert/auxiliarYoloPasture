@@ -8,13 +8,13 @@ class MenuDownload:
         self.YES = "Y"
         self.OPTIONS = [
             "CAMPO_2_CIMA",
-            "CAMPO_2_SUBIDA",
-            "IMAGENS_SUBIDA_CAMPO_1_V",
-            "CAMPO_1_SUBIDA",
+            # "CAMPO_2_SUBIDA",
+            # "IMAGENS_SUBIDA_CAMPO_1_V",
+            # "CAMPO_1_SUBIDA",
             "IMAGENS_CIMA_CAMPO_1_V",
             "CAMPO_1_CIMA",
             "IMAGENS_V",
-            "CAMPO_4_SUBIDA",
+            # "CAMPO_4_SUBIDA",
             "CAMPO_4_CIMA"
         ]
         self.IP = ip
