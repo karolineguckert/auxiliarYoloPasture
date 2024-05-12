@@ -69,6 +69,13 @@ class LabelRemover:
 
                 self.__write_to_file(label_path, content)
 
+    def clear_all_bounding_box_from_train(self):
+        file_list = os.listdir('./images_to_train/labels')
+
+        for file in file_list:
+            label_path = './images_to_train/labels/{}'.format(file)
+            self.__write_empty_to_file(label_path)
+
     # Assistant method to get all lines from file with classifications
     #
     # label_path is the path of the label
@@ -105,6 +112,13 @@ class LabelRemover:
                     and label_type != self.TERMITE and label_type != self.EXPOSED_SOIL
                     and label_type != self.PASTURE and label_type != self.PALM_TREE):
                 file.write(line)
+
+    # Assistant method to write empty values in the file with classifications
+    #
+    # label_path is the path of the label
+    def __write_empty_to_file(self, label_path):
+        file = open(label_path, "w+")
+        file.write('')
 
     # Assistant method to write only exposed soil and termite values in the file with classifications
     #
