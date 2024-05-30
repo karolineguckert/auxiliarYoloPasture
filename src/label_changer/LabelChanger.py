@@ -4,7 +4,8 @@ import os
 class LabelChanger:
     def __init__(self, root_path):
         self.ROOT_PATH = root_path
-        self.OLD_VALUES = [1, 2, 3, 6, 7, 8, 9, 10]  # BIG_BUSH, SMALL_BUSH, TREE, NARROW_LEAVES, WIDE_LEAVES, WEED,
+        self.OLD_VALUES = [3, 4, 5] # WEED, NARROW_LEAVES, WIDE_LEAVES
+        # self.OLD_VALUES = [1, 2, 3, 6, 7, 8, 9, 10]  # BIG_BUSH, SMALL_BUSH, TREE, NARROW_LEAVES, WIDE_LEAVES, WEED,
         # PALM_TREE, PASTURE
 
     # Assistant method to change de type of the bounding box from images in the multiples folders
