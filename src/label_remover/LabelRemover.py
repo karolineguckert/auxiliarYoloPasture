@@ -11,6 +11,9 @@ class LabelRemover:
         self.PASTURE = 7
         self.PALM_TREE = 6
         self.OLD_PASTURE = 10
+        self.TREE = 2
+        self.SMALL_BRUSH = 0
+        self.BIG_BRUSH = 1
 
     # Assistant method to remove files with no classifications
     #
@@ -29,6 +32,19 @@ class LabelRemover:
 
                 if is_file_empty:
                     os.remove(label_path)
+
+    def remove_invalid_bounding_box_of_small_and_big_brush(self):
+        file_list = os.listdir(self.ROOT_PATH)
+
+        for file in file_list:
+            labels_folder_path = '{}/labels'.format(self.ROOT_PATH, file)
+            labels_list = os.listdir(labels_folder_path)
+
+            for label in labels_list:
+                label_path = '{}/{}'.format(labels_folder_path, label)
+                content = self.__get_label_lines(label_path)
+
+                self.__write_to_file_small_and_big_brush(label_path, content)
 
     def remove_invalid_bounding_box_not_exposed_soil_and_terminate(self):
         file_list = os.listdir(self.ROOT_PATH)
@@ -133,6 +149,25 @@ class LabelRemover:
 
             if label_type == self.TERMITE or label_type == self.EXPOSED_SOIL:
                 file.write(line)
+
+    # Assistant method to write only exposed soil and termite values in the file with classifications
+    #
+    # label_path is the path of the label
+    # content is the values written in the file classifications
+    def __write_to_file_small_and_big_brush(self, label_path, content):
+        file = open(label_path, "w+")
+
+        for line in content:
+            lines_divided = line.split(" ")
+            print(line, label_path)
+
+            try:
+                label_type = int(lines_divided[0])
+
+                if label_type != self.SMALL_BRUSH and label_type != self.BIG_BRUSH and label_type != self.TREE:
+                    file.write(line)
+            except ValueError:
+                file.write("")
 
     # Assistant method to write only pasture values in the file with classifications
     #

@@ -15,4 +15,4 @@ if __name__ == '__main__':
     # LabelChanger("./images").change_bounding_boxes()
     # LabelRemover().remove_invalid_bounding_box_not_exposed_soil_and_terminate()
     # LabelRemover().remove_invalid_bounding_box_not_pasture()
-    LabelRemover().clear_all_bounding_box_from_train()
+    LabelRemover().remove_invalid_bounding_box_of_small_and_big_brush()
